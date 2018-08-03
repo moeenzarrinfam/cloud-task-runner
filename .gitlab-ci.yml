@@ -16,7 +16,7 @@ rspec:
     - which ruby
     - gem install bundler --no-ri --no-rdoc
     - RAILS_ENV=test bundle install --jobs $(nproc) "${FLAGS[@]}"
-    - cp config/application.example.yml config/application.yml
+    - cp config/application.sample.yml config/application.yml
     - RAILS_ENV=test bundle exec rake db:create db:schema:load db:seed
     - RAILS_ENV=test bundle exec rspec spec
 
@@ -25,9 +25,8 @@ rubocop:
   script:
     - ruby -v
     - which ruby
-    - gem install bundler --no-ri --no-rdoc
-    - RAILS_ENV=test bundle install --jobs $(nproc) "${FLAGS[@]}"
-    - bundle exec rubocop
+    - gem install rubocop
+    - rubocop
 
 build:
   stage: build
