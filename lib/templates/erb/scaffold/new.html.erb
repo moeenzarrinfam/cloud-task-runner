@@ -1,0 +1,17 @@
+<section class="hero is-light">
+  <div class="hero-body">
+    <div class="columns">
+      <div class="column is-half is-offset-one-quarter">
+        <div class="page-header">
+          <%%= link_to <%= index_helper %>_path, class: 'button is-link' do %>
+            <span class="fa fa-list-alt"></span>
+          <%%= t('d.Back') %>
+          <%% end %>
+          <h1><%%= t('d.New') %> <%%= <%= human_name %>.model_name.human %></h1>
+        </div>
+
+        <%%= render 'form' %>
+      </div>
+    </div>
+  </div>
+</section>

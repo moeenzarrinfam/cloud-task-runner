@@ -1,0 +1,17 @@
+fa:
+  activerecord:
+    models:
+      task:
+        one: 'وظیفه'
+        other: 'وظیفه ها'
+    attributes:
+      task:
+        name: 'نام وظیفه'
+        user: 'کاربر'
+        environment: 'محیط اجرا'
+        execable: 'آدرس فایل اجرایی'
+        file: 'فایل'
+        download_file: 'دانلود فایل'
+    info:
+      task:
+        file: 'فایل zip از کل پروژه قابل اجرا در محیط'

@@ -1,0 +1,23 @@
+AllCops:
+  TargetRubyVersion: 2.3
+  Exclude:
+    - db/schema.rb
+    - db/migrate/*
+    - bin/*
+Style/FrozenStringLiteralComment:
+  Enabled: false
+Style/Documentation:
+  Enabled: false
+Metrics/MethodLength:
+  Max: 50
+Metrics/LineLength:
+  Max: 150
+ClassLength:
+  Max: 150
+Metrics/AbcSize:
+  Enabled: false
+EndOfLine:
+  Enabled: false
+Metrics/BlockLength:
+  Max: 40
+  ExcludedMethods: ['describe', 'context', 'draw']

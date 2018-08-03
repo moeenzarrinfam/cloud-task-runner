@@ -1,0 +1,39 @@
+<section class="hero is-light">
+  <div class="hero-body">
+    <div class="columns">
+      <div class="column is-half is-offset-one-quarter">
+        <div class="page-header">
+          <%= link_to tasks_path, class: 'button is-link' do %>
+            <span class="fa fa-list-alt"></span>
+          <%= t('d.Back') %>
+          <% end %>
+          <%= link_to edit_task_path(@task), class: 'button is-link' do %>
+            <span class="fa fa-pencil"></span>
+            <%= t('d.Edit') %>
+          <% end %>
+          <h1><%= t('d.Show') %> <%= Task.model_name.human %> </h1>
+        </div>
+
+        <dl class="dl-horizontal">
+
+          <dt><%= Task.human_attribute_name('name') %>:</dt>
+          <dd><%= @task.name %></dd>
+
+          <dt><%= Task.human_attribute_name('user') %>:</dt>
+          <dd><%= @task.user.email %></dd>
+
+          <dt><%= Task.human_attribute_name('environment') %>:</dt>
+          <dd><%= @task.environment.name %></dd>
+
+          <dt><%= Task.human_attribute_name('file') %>:</dt>
+          <dd><%= link_to Task.human_attribute_name('download_file'), @task.file_url %></dd>
+
+          <dt><%= Task.human_attribute_name('execable') %>:</dt>
+          <dd><%= @task.execable %></dd>
+
+
+        </dl>
+      </div>
+    </div>
+  </div>
+</section>

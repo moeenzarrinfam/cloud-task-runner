@@ -1,0 +1,54 @@
+<section class="hero is-light">
+  <div class="hero-body">
+    <div class="columns is-multiline">
+      <div class="column is-full">
+        <div class="page-header">
+          <%= link_to new_task_path, class: 'button is-link' do %>
+            <span class="fa fa-plus"></span>
+          <%= t('d.New') %> <%= Task.model_name.human %>
+          <% end %>
+          <h1><%= t('d.Listing') %> <%= Task.model_name.human %></h1>
+        </div>
+      </div>
+      <div class="column is-full table-wrapper">
+        <table class="table is-fullwidth">
+          <thead>
+            <tr>
+              <th><%= Task.human_attribute_name('name') %></th>
+
+              <th><%= Task.human_attribute_name('environment') %></th>
+
+              <th><%= Task.human_attribute_name('execable') %></th>
+
+              <th><%= t('d.Action') %></th>
+            </tr>
+          </thead>
+
+          <tbody>
+          <%= content_tag_for(:tr, @tasks) do |task| %>
+            <td><%= task.name %></td>
+
+            <td><%= task.environment.name %></td>
+
+            <td><%= task.execable %></td>
+
+            <td>
+              <div class="btn-group">
+                <%= link_to  task ,class: "button is-link is-small" do %>
+                    <i class="fa fa-eye"></i>
+                <% end -%>
+                <%= link_to  edit_task_path(task) ,class: "button is-link is-small" do %>
+                    <i class="fa fa-edit"></i>
+                <% end -%>
+                <%= link_to task, method: :delete, data: { confirm: t('s.Suring') } ,class: "button is-link is-small" do %>
+                    <i class="fa fa-trash"></i>
+                <% end -%>
+              </div>
+            </td>
+          <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>

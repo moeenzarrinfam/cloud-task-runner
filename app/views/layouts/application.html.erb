@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+  <!-- Buefy CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/buefy/lib/buefy.min.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!-- Buefy JavaScript -->
+  <script src="https://unpkg.com/buefy"></script>
+  <%= javascript_include_tag 'application' %>
+  <style>
+    body.rtl {
+      text-align: right;
+    }
+    body.rtl form{
+      direction: rtl;
+
+    }
+    body.rtl input{
+      text-align: right;
+    }
+    .table-wrapper {
+       overflow-x: auto;
+     }
+  </style>
+</head>
+<body class="<%= 'rtl' if I18n.locale == :fa %>">
+  <!-- START NAV -->
+  <nav class="navbar">
+    <div class="container">
+      <div class="navbar-brand">
+        <a class="navbar-item" href="../">
+          <img src="../images/bulma.png" alt="Logo">
+        </a>
+        <span class="navbar-burger burger" data-target="navbarMenu">
+                          <span></span>
+                  <span></span>
+                  <span></span>
+                  </span>
+      </div>
+      <div id="navbarMenu" class="navbar-menu">
+        <div class="navbar-end">
+          <div class="navbar-item has-dropdown is-hoverable">
+            <a class="navbar-link">
+              <%= 'حساب کاربری' %>
+            </a>
+            <% if current_user.present? %>
+              <div class="navbar-dropdown">
+                <%= link_to('داشبورد', user_dashboard_path(current_user), class:'navbar-item') %>
+                </a>
+                <hr class="navbar-divider">
+                <%= link_to('خروج', destroy_user_session_path, method: :get, class:'navbar-item') %>
+              </div>
+            <% else %>
+              <div class="navbar-dropdown">
+                <%= link_to('ثبت نام', new_user_registration_path,  class:'navbar-item')  %>
+                <hr class="navbar-divider">
+                <%= link_to('ورود', new_user_session_path, class:'navbar-item')  %>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <!-- END NAV -->
+  <%= yield %>
+  <script>
+      Vue.use(Buefy.default)
+  </script>
+</body>
+</html>

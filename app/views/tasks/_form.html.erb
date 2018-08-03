@@ -1,0 +1,48 @@
+ <%= form_for(@task, html: { class: "form-horizontal", role: "form" }) do |f| %>
+  <% if @task.errors.any? %>
+    <div class="notification is-danger" role="alert">
+      <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">X</span></button>
+      <ul>
+      <% @task.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name, class: "label"  %>
+    <div class="control">
+      <%= f.text_field :name, class: "input" %>
+    </div>
+  </div>
+
+  <div class="field">
+    <%= f.label :environment_id, Task.human_attribute_name('environment'), class: "label"  %>
+    <div class="select">
+      <%= f.select :environment_id, Environment.active.collect {|e| [ e.name, e.id ] } %>
+    </div>
+  </div>
+
+  <div class="field">
+    <%= f.label :file, Task.human_attribute_name('file'), class: "label"  %>
+    <%= link_to Task.human_attribute_name('download_file'), "#{ENV['FILE_SERVER_ADDRESS']}#{@task.file_url}" if @task&.file_url.present? %>
+    <i>(<%= "#{t('activerecord.info.task.file')} #{@task&.environment&.name}" %>)</i>
+    <div class="control">
+      <%= f.file_field :file, class: "input" unless @task&.file_url.present? %>
+    </div>
+  </div>
+
+  <% if @task&.file_url.present? %>
+    <div class="field">
+      <%= f.label :execable, Task.human_attribute_name('execable'), class: "label"  %>
+      <div class="select">
+        <%= f.select :execable, @task.files %>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= f.submit value: t('d.Save'), class: "button is-link" %>
+  </div>
+<% end %>

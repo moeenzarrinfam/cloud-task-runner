@@ -1,0 +1,23 @@
+default: &default
+  host: <%= ENV['DATABASE_HOST'] || 'localhost' %>
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  timeout: 5000
+  username: <%= ENV['DATABASE_USERNAME'] %>
+  password: <%= ENV['DATABASE_PASSWORD'] %>
+  schema_search_path: "public"
+
+development:
+  <<: *default
+  database: cloud_task_runner_dev
+
+
+test:
+  <<: *default
+  database: cloud_task_runner_test
+
+production:
+  <<: *default
+  database: cloud_task_runner
+
