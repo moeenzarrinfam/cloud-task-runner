@@ -3,7 +3,7 @@ stages:
   - test
   - build
 variables:
-  POSTGRES_DB: cloud-task-runner_test
+  POSTGRES_DB: cloud_task_runner_test
   POSTGRES_USER: postgres
   POSTGRES_PASSWORD: 'postgres'
 rspec:
