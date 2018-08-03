@@ -5,7 +5,10 @@ class CreateTasks < ActiveRecord::Migration[5.1]
       t.references :environment, foreign_key: true
       t.string :file
       t.string :name
-      t.string :execable
+      t.string :exec_command
+      t.string :uid
+      t.integer :status, default: 0
+      t.numeric :running_time, default: 0
 
       t.timestamps
     end

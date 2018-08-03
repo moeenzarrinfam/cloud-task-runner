@@ -1,0 +1,9 @@
+version: "3"
+services:
+  python3-task-runner:
+    image: python:3-alpine
+    container_name: <%= task.uid %>
+    entrypoint: sh ./entrypoint.sh
+    volumes:
+    - ./:/code
+    working_dir: /code

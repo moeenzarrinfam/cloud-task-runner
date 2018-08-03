@@ -9,7 +9,7 @@ fa:
         name: 'نام وظیفه'
         user: 'کاربر'
         environment: 'محیط اجرا'
-        execable: 'آدرس فایل اجرایی'
+        exec_command: 'آدرس فایل اجرایی'
         file: 'فایل'
         download_file: 'دانلود فایل'
     info:

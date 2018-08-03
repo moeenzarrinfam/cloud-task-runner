@@ -29,7 +29,10 @@ ActiveRecord::Schema.define(version: 20180720093657) do
     t.bigint "environment_id"
     t.string "file"
     t.string "name"
-    t.string "execable"
+    t.string "exec_command"
+    t.string "uid"
+    t.integer "status", default: 0
+    t.decimal "running_time", default: "0.0"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["environment_id"], name: "index_tasks_on_environment_id"

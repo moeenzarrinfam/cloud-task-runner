@@ -19,13 +19,11 @@ class TasksController < ApplicationController
 
   # POST /tasks
   def create
-    @task = Task.new(task_params.merge(user: current_user))
+    @task = Task.new(task_params.merge(user: current_user).merge(hash: SecureRandom.uuid))
+    return render :new unless @task.save
 
-    if @task.save
-      redirect_to edit_task_path(@task), notice: 'Task was successfully created.'
-    else
-      render :new
-    end
+
+    redirect_to edit_task_path(@task), notice: 'Task was successfully created.'
   end
 
   # PATCH/PUT /tasks/1
@@ -52,6 +50,6 @@ class TasksController < ApplicationController
 
   # Only allow a trusted parameter "white list" through.
   def task_params
-    params.require(:task).permit(:environment_id, :file, :name, :execable)
+    params.require(:task).permit(:environment_id, :file, :name, :exec_command)
   end
 end

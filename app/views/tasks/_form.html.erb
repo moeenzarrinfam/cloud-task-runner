@@ -35,9 +35,9 @@
 
   <% if @task&.file_url.present? %>
     <div class="field">
-      <%= f.label :execable, Task.human_attribute_name('execable'), class: "label"  %>
+      <%= f.label :exec_command, Task.human_attribute_name('exec_command'), class: "label"  %>
       <div class="select">
-        <%= f.select :execable, @task.files %>
+        <%= f.select :exec_command, @task.files %>
       </div>
     </div>
   <% end %>

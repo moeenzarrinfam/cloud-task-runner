@@ -18,7 +18,7 @@
 
               <th><%= Task.human_attribute_name('environment') %></th>
 
-              <th><%= Task.human_attribute_name('execable') %></th>
+              <th><%= Task.human_attribute_name('exec_command') %></th>
 
               <th><%= t('d.Action') %></th>
             </tr>
@@ -30,7 +30,7 @@
 
             <td><%= task.environment.name %></td>
 
-            <td><%= task.execable %></td>
+            <td><%= task.exec_command %></td>
 
             <td>
               <div class="btn-group">

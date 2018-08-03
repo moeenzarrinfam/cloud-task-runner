@@ -28,8 +28,8 @@
           <dt><%= Task.human_attribute_name('file') %>:</dt>
           <dd><%= link_to Task.human_attribute_name('download_file'), @task.file_url %></dd>
 
-          <dt><%= Task.human_attribute_name('execable') %>:</dt>
-          <dd><%= @task.execable %></dd>
+          <dt><%= Task.human_attribute_name('exec_command') %>:</dt>
+          <dd><%= @task.exec_command %></dd>
 
 
         </dl>
