@@ -1,5 +1,5 @@
 default: &default
-  host: <%= ENV['DATABASE_HOST'] || 'postgres' %>
+  host: <%= ENV['DATABASE_HOST'] || 'localhost' %>
   adapter: postgresql
   encoding: unicode
   pool: 5
