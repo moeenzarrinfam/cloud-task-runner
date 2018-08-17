@@ -11,7 +11,7 @@ module ContainerMakers
     def call
       project_path = "tmp/containers/#{@task.environment.name}/#{@task.uid}"
       FileUtils.mkdir_p project_path
-      system("unzip #{@task.file.path} #{project_path}")
+      system("cd #{project_path} && unzip #{@task.file.path}")
 
       File.open("#{project_path}/entrypoint.sh", 'w') do |f|
         f.write(

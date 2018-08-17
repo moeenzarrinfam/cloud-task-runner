@@ -3,6 +3,6 @@ set -e
 
 python --version
 
-python ./<%= task.exec_command %>
+python -u ./<%= task.exec_command %>
 
 exec "$@"
