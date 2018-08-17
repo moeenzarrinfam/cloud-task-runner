@@ -4,11 +4,11 @@
 # Examples:
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-ruby = Environment.find_or_create_by(name: 'Ruby')
+ruby = Environment.find_or_create_by(name: 'ruby')
 ruby.update_attributes(file_extension: 'rb', active: false)
 
-ruby = Environment.find_or_create_by(name: 'Python2')
+ruby = Environment.find_or_create_by(name: 'python2')
 ruby.update_attributes(file_extension: 'py', active: true)
 
-ruby = Environment.find_or_create_by(name: 'Python3')
+ruby = Environment.find_or_create_by(name: 'python3')
 ruby.update_attributes(file_extension: 'py', active: true)

@@ -15,20 +15,23 @@ class TasksController < ApplicationController
   end
 
   # GET /tasks/1/edit
-  def edit; end
+  def edit
+    redirect_to task_path(@task), notice: 'Task Is uneditable.' unless @task.new_?
+  end
 
   # POST /tasks
   def create
-    @task = Task.new(task_params.merge(user: current_user).merge(hash: SecureRandom.uuid))
+    @task = Task.new(task_params.merge(user: current_user).merge(uid: SecureRandom.uuid))
     return render :new unless @task.save
-
 
     redirect_to edit_task_path(@task), notice: 'Task was successfully created.'
   end
 
   # PATCH/PUT /tasks/1
   def update
+    redirect_to task_path(@task), notice: 'Task Is uneditable.' unless @task.new_?
     if @task.update(task_params)
+      ContainerMakers::Python3.call(task: @task)
       redirect_to @task, notice: 'Task was successfully updated.'
     else
       render :edit

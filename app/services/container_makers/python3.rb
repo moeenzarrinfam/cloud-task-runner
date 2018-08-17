@@ -1,4 +1,5 @@
 require 'erb'
+require 'fileutils'
 module ContainerMakers
   class Python3
     include Peafowl
@@ -8,17 +9,26 @@ module ContainerMakers
     validates :task, presence: true
 
     def call
-      project_path = "tmp/containers/#{@task.uid}"
-      system("mkdir -p #{project_path}")
-      # system("unzip #{@task.file.path} #{project_path}")
+      project_path = "tmp/containers/#{@task.environment.name}/#{@task.uid}"
+      FileUtils.mkdir_p project_path
+      system("unzip #{@task.file.path} #{project_path}")
 
-      File.open("#{project_path}/entrypoint.sh",'w') do |f|
-        f.write(ERB.new("Hello <%= @task.uid%>").result(binding))
+      File.open("#{project_path}/entrypoint.sh", 'w') do |f|
+        f.write(
+          ERB.new(
+            File.read("lib/templates/erb/docker/#{@task.environment.name}/entrypoint.sh.erb")
+          ).result(binding)
+        )
       end
 
-      add_error!('') unless true
-
-      context[:user] = { username: sample_username }
+      File.open("#{project_path}/docker-compose.yml", 'w') do |f|
+        f.write(
+          ERB.new(
+            File.read("lib/templates/erb/docker/#{@task.environment.name}/docker-compose.yml.erb")
+          ).result(binding)
+        )
+      end
+      Python3Worker.perform_async(task.id)
     end
   end
 end

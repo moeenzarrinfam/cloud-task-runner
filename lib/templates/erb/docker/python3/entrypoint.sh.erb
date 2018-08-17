@@ -1,8 +1,8 @@
 #!/bin/bash
 set -e
 
-<%= task.exec_command %>
-
 python --version
+
+python ./<%= task.exec_command %>
 
 exec "$@"

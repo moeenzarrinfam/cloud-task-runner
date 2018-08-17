@@ -1,5 +1,6 @@
 require 'zip'
 class Task < ApplicationRecord
+  enum status: %i[new_ paused running done]
   mount_uploader :file, TaskUploader
 
   belongs_to :user
@@ -8,7 +9,7 @@ class Task < ApplicationRecord
   def files
     result = []
     return result unless file_url.present?
-    Zip::File.open(Task.last.file.path) do |zipfile|
+    Zip::File.open(file.path) do |zipfile|
       zipfile.each do |entry|
         next unless entry.name.split('.').last == environment&.file_extension
         result << entry.name
