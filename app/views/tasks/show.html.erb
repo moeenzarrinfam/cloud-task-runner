@@ -19,9 +19,6 @@
           <dt><%= Task.human_attribute_name('name') %>:</dt>
           <dd><%= @task.name %></dd>
 
-          <dt><%= Task.human_attribute_name('user') %>:</dt>
-          <dd><%= @task.user.email %></dd>
-
           <dt><%= Task.human_attribute_name('environment') %>:</dt>
           <dd><%= @task.environment.name %></dd>
 
@@ -30,6 +27,15 @@
 
           <dt><%= Task.human_attribute_name('exec_command') %>:</dt>
           <dd><%= @task.exec_command %></dd>
+
+          <dt><%= Task.human_attribute_name('logs') %>:</dt>
+          <dd>
+            <section class="hero is-black has-text-left	">
+              <div class="hero-body">
+                <%= simple_format(@task.logs) %>
+              </div>
+            </section>
+          </dd>
 
 
         </dl>

@@ -12,6 +12,7 @@ fa:
         exec_command: 'آدرس فایل اجرایی'
         file: 'فایل'
         download_file: 'دانلود فایل'
+        logs: 'گزارش'
     info:
       task:
         file: 'فایل zip از کل پروژه قابل اجرا در محیط'

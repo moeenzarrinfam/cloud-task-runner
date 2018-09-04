@@ -18,6 +18,11 @@ class Task < ApplicationRecord
     result
   end
 
+  def logs
+    container = Docker::Container.get(Task.last.uid)
+    container.logs(stdout: true)
+  end
+
   validates :file, presence: true, unless: :file_errors_exist?
 
   private

@@ -29,7 +29,7 @@ class Python3Worker
     begin
       pause_status = system("docker pause #{task.uid}")
       task.update_attributes(status: :done) unless pause_status
-    rescue
+    rescue StandardError
       task.update_attributes(status: :done)
     end
   end
