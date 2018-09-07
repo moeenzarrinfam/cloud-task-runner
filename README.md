@@ -4,9 +4,9 @@ CTR is a application to schedule and run calculating applications in different l
 
 this application is implemented on ruby on rails web framework as a web application.
 
-##Important notes
-*_only python3 worker is working right now._ *
+## Important notes
 
+*_only python3 worker is working right now._ *
 *_internalization only available for farsi now._ *
 
 
@@ -28,7 +28,7 @@ gem install bundler
 bundle install
 ```
 
-##Configuration
+## Configuration
 for configuration you need copy this three sample files in same directory and set correct values
 ```
 cp config/application.sample.yml config/application.yml
@@ -36,7 +36,7 @@ cp config/database.sample.yml config/database.yml
 cp config/secrets.sample.yml config/secrets.yml
 ```
 
-##Database
+## Database
 if you are using postgres configure your database in `config/application.yml`
 else config your connection in `config/database.yml`
 and then run this command:
@@ -44,14 +44,14 @@ and then run this command:
 rake db:setup db:seed
 ```
 
-##Test suite
+## Test suite
 to running tests you can use `bundle exec rspec spec`
 ## Services
 we have one service based on sidekiq and you can run many instance of it as a worker to scedule application tasks. I recommand run workers in a different host from web application. ensure redis and docker installed and database connection has been set and then run this command:
 ```
 bundle exec sidekiq
 ```
-##Deployment
+## Deployment
 to running web application you to need run:
 ```
 rails s -e production -p _PORT_
