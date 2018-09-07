@@ -19,8 +19,8 @@ class Task < ApplicationRecord
   end
 
   def logs
-    container = ::Docker::Container.get(uid)
-    container.logs(stdout: true)
+    container = ::Docker::Container&.get(uid)
+    container&.logs(stdout: true)
   end
 
   validates :file, presence: true, unless: :file_errors_exist?
