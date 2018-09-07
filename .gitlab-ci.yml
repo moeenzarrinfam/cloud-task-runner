@@ -11,7 +11,7 @@ rspec:
   services:
     - postgres:10
   script:
-    - apt-get update -qq && apt-get install -y -qq postgresql postgresql-contrib nodejs libpq-dev cmake
+    - apt-get update -qq && apt-get install -y -qq nodejs libpq-dev cmake
     - ruby -v
     - which ruby
     - gem install bundler --no-ri --no-rdoc
