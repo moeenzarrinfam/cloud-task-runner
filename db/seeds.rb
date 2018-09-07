@@ -1,4 +1,4 @@
-#supported environemts
+# supported environemts
 
 # ruby = Environment.find_or_create_by(name: 'ruby')
 # ruby.update_attributes(file_extension: 'rb', active: false)
