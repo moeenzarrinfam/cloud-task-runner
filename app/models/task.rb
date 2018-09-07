@@ -19,7 +19,7 @@ class Task < ApplicationRecord
   end
 
   def logs
-    container = Docker::Container.get(uid)
+    container = ::Docker::Container.get(uid)
     container.logs(stdout: true)
   end
 
