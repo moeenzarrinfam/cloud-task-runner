@@ -4,7 +4,10 @@ CTR is a application to schedule and run calculating applications in different l
 
 this application is implemented on ruby on rails web framework as a web application.
 
-_internalization only available for farsi now_
+##Important notes
+*_only python3 worker is working right now._ *
+
+*_internalization only available for farsi now._ *
 
 
 ## System dependencies
