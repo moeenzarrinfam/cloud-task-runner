@@ -19,7 +19,11 @@ class Task < ApplicationRecord
   end
 
   def logs
-    container = ::Docker::Container&.get(uid)
+    begin
+      container = ::Docker::Container.get(uid)
+    rescue Docker::Error::NotFoundError
+      container = nil
+    end
     container&.logs(stdout: true)
   end
 
