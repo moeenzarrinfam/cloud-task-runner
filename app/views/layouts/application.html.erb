@@ -30,7 +30,7 @@
     <div class="container">
       <div class="navbar-brand">
         <a class="navbar-item" href="../">
-          <img src="../images/bulma.png" alt="Logo">
+          <span class="fa fa-cloud"></span>
         </a>
         <span class="navbar-burger burger" data-target="navbarMenu">
                           <span></span>
@@ -46,7 +46,7 @@
             </a>
             <% if current_user.present? %>
               <div class="navbar-dropdown">
-                <%= link_to('داشبورد', user_dashboard_path(current_user), class:'navbar-item') %>
+                <%= link_to Task.model_name.human(count: 2), tasks_path, class: 'navbar-item' %>
                 </a>
                 <hr class="navbar-divider">
                 <%= link_to('خروج', destroy_user_session_path, method: :get, class:'navbar-item') %>
