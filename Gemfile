@@ -66,3 +66,5 @@ gem 'docker-api'
 gem 'peafowl'
 
 gem 'sidekiq'
+
+gem 'mini_racer', platforms: :ruby
