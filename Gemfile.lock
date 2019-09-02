@@ -46,6 +46,8 @@ GEM
       i18n (>= 0.7, < 2)
       minitest (~> 5.1)
       tzinfo (~> 1.1)
+    addressable (2.7.0)
+      public_suffix (>= 2.0.2, < 5.0)
     arel (8.0.0)
     axiom-types (0.1.1)
       descendants_tracker (~> 0.0.4)
@@ -139,9 +141,12 @@ GEM
       virtus
     pg (0.21.0)
     pg (0.21.0-x86-mingw32)
+    public_suffix (4.0.1)
     puma (3.12.0)
     rack (2.0.5)
     rack-protection (2.0.3)
+      rack
+    rack-proxy (0.6.5)
       rack
     rack-test (1.1.0)
       rack (>= 1.0, < 3)
@@ -168,10 +173,17 @@ GEM
       method_source
       rake (>= 0.8.7)
       thor (>= 0.18.1, < 2.0)
+    rainbow (3.0.0)
     rake (12.3.1)
     rb-fsevent (0.10.3)
     rb-inotify (0.9.10)
       ffi (>= 0.5.0, < 2)
+    react_on_rails (11.1.4)
+      addressable
+      connection_pool
+      execjs (~> 2.5)
+      rails (>= 3.2)
+      rainbow (~> 3.0)
     record_tag_helper (1.0.0)
       actionview (~> 5.x)
     redis (4.0.1)
@@ -240,6 +252,10 @@ GEM
       equalizer (~> 0.0, >= 0.0.9)
     warden (1.2.7)
       rack (>= 1.0)
+    webpacker (3.6.0)
+      activesupport (>= 4.2)
+      rack-proxy (>= 0.6.1)
+      railties (>= 4.2)
     websocket-driver (0.6.5)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.3)
@@ -264,6 +280,7 @@ DEPENDENCIES
   pg (~> 0.18)
   puma (~> 3.7)
   rails (~> 5.1.4)
+  react_on_rails (= 11.1.4)
   record_tag_helper
   rspec-rails
   rubyzip
@@ -272,6 +289,7 @@ DEPENDENCIES
   simplecov
   tzinfo-data
   uglifier (>= 2.7.2)
+  webpacker (~> 3)
 
 BUNDLED WITH
-   1.16.3
+   1.17.2
