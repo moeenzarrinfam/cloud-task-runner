@@ -139,7 +139,8 @@ GEM
       virtus
     pg (0.21.0)
     pg (0.21.0-x86-mingw32)
-    puma (3.12.0)
+    puma (4.3.9)
+      nio4r (~> 2.0)
     rack (2.0.5)
     rack-protection (2.0.3)
       rack
@@ -262,7 +263,7 @@ DEPENDENCIES
   jquery-rails
   peafowl
   pg (~> 0.18)
-  puma (~> 3.7)
+  puma (~> 4.3)
   rails (~> 5.1.4)
   record_tag_helper
   rspec-rails
